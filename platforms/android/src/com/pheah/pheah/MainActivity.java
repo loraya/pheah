@@ -28,7 +28,9 @@ public class MainActivity extends CordovaActivity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        // Set by <content src="index.html" /> in config.xml
-        loadUrl(launchUrl);
+		//setContentView(R.layout.splash);*/
+		//super.setIntegerProperty("splashscreen", R.drawable.orange);
+		// Set by <content src="index.html" /> in config.xml
+		loadUrl(launchUrl);
     }
 }

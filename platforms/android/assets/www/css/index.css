@@ -1,15 +1,21 @@
 body.mainLayout
 {
 	background-color:#ff6600;
+	color: white;
 }
 span.mainLayout
 {
 	bottom : 0;
 	right : 0;
 }
-body.loginLayout
+.loginLayout
 {
 	background-color:#ff6600;
+	text-align: -webkit-center;
+	text-align: center;
+	position: absolute;
+	top: 5px;
+	width: 100%;
 }
 .loginbox
 {
@@ -20,21 +26,79 @@ body.loginLayout
 .loginbtn {
 	background-color: white;
 	color: #ff6600;
-	position: absolute;
+	/*position: absolute;
 	left: 5px;
-	bottom: 5px;
+	bottom: 5px;*/
 	border-radius: 4px;
 	padding: 2px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	padding-left: 5px;
 	padding-right: 5px;
+	
+	width: 80px;
+	height: 40px;
+	position: absolute;
+	left: 50%;
+	bottom: 5px;
+	margin-left: -40px;
+	margin-top: -20px;
+	
+	vertical-align:middle;
+	font-size: 1.2em;
+	font-weight: 600;
+	text-align: center;
+	text-align: -webkit-center;
 }
-a:link, a:visited, a:hover, a:active {
+.loginbtn:hover, .loginbtn:active, .loginbtn:focus {
+	background-color: #eeeeee;
+}
+.fbloginbtn {
+	border-radius: 4px;
+	padding: 2px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 10px;
+	
+	background-color: #3B5998;
+	color: white;
+	width: 200px;
+	height: 40px;
+	
+	vertical-align:middle;
+	font-size: 1.2em;
+	font-weight: 600;
+	text-align: center;
+	text-align: -webkit-center;
+}
+.fbloginbtn:hover, .fbloginbtn:active {
+	background-color: white;
+	color: #3B5998;
+}
+.gloginbtn {
+	content: url('../img/btn_google+_signin_dark_normal_web.png');
+	margin: 10px;
+}
+.gloginbtn:hover, .gloginbtn:active {
+	content: url('../img/btn_google+_signin_dark_pressed_web.png');
+}
+.gloginbtn:focus {
+	content: url('../img/btn_google+_signin_dark_focus_web.png');
+}
+.logindiv {
+	width: 220px;
+	height: 140px;
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	margin-left: -110px;
+	margin-bottom: -70px;
+}
+a, a:link, a:visited, a:hover, a:active {
     color: #ff6600;
 	text-decoration: none;
-}
-span.loginLayout
-{
-	bottom : 0;
 }
 .fblogin
 {
@@ -44,4 +108,13 @@ span.loginLayout
 	color: #ff6600;
 	border-radius: 4px;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.copyright {
+	width: 133.5px;
+	height: 21px;
+	position: absolute;
+	left: 50%;
+	bottom: 5px;
+	margin-left: -66.75px;
+	margin-top: -11.5px;
 }
