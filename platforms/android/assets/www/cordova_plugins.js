@@ -25,6 +25,27 @@ module.exports = [
         "clobbers": [
             "console"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "id": "cordova-plugin-splashscreen.SplashScreen",
+        "clobbers": [
+            "navigator.splashscreen"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
+        "id": "cordova-plugin-googleplus.GooglePlus",
+        "clobbers": [
+            "window.plugins.googleplus"
+        ]
+    },
+    {
+        "file": "plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js",
+        "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
+        "clobbers": [
+            "facebookConnectPlugin"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -32,7 +53,11 @@ module.exports.metadata =
 {
     "cordova-plugin-whitelist": "1.1.0",
     "cordova-plugin-device": "1.0.1",
-    "cordova-plugin-console": "1.0.1"
+    "cordova-plugin-console": "1.0.1",
+    "cordova-plugin-splashscreen": "2.1.0",
+    "cordova-plugin-googleplus": "4.0.3",
+    "com.phonegap.plugins.facebookconnect": "0.11.0",
+    "cordova-plugin-googleplayservices": "19.0.1"
 }
 // BOTTOM OF METADATA
 });

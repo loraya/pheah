@@ -50,6 +50,52 @@ span.mainLayout
 	text-align: center;
 	text-align: -webkit-center;
 }
+.loginbtn:hover, .loginbtn:active, .loginbtn:focus {
+	background-color: #eeeeee;
+}
+.fbloginbtn {
+	border-radius: 4px;
+	padding: 2px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 10px;
+	
+	background-color: #3B5998;
+	color: white;
+	width: 200px;
+	height: 40px;
+	
+	vertical-align:middle;
+	font-size: 1.2em;
+	font-weight: 600;
+	text-align: center;
+	text-align: -webkit-center;
+}
+.fbloginbtn:hover, .fbloginbtn:active {
+	background-color: white;
+	color: #3B5998;
+}
+.gloginbtn {
+	content: url('../img/btn_google+_signin_dark_normal_web.png');
+	margin: 10px;
+}
+.gloginbtn:hover, .gloginbtn:active {
+	content: url('../img/btn_google+_signin_dark_pressed_web.png');
+}
+.gloginbtn:focus {
+	content: url('../img/btn_google+_signin_dark_focus_web.png');
+}
+.logindiv {
+	width: 220px;
+	height: 140px;
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	margin-left: -110px;
+	margin-bottom: -70px;
+}
 a, a:link, a:visited, a:hover, a:active {
     color: #ff6600;
 	text-decoration: none;
