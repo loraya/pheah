@@ -118,3 +118,35 @@ a, a:link, a:visited, a:hover, a:active {
 	margin-left: -66.75px;
 	margin-top: -11.5px;
 }
+.actbar {
+	padding: .05cm .1cm;
+}
+.actbar *, .addbar * {
+	vertical-align:middle;
+}
+.sidebarbtnl, .sidebarbtnr {
+	height: 1cm;
+}
+.sidebarbtnr {
+	position: absolute;
+	right: 0;
+	margin-right: .1cm;
+}
+.mapcnt {
+	background-color: #fff;
+	color: #ff6600;
+	height: inherit;
+}
+.addbar {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+.addbtn {
+	height: 1cm;
+	
+	position: relative;
+	left: 50%;
+	margin-left: -.5cm;	/*Assuming its square and width is 1cm*/
+}

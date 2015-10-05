@@ -3,39 +3,40 @@ var service, slider;
 (function () {
 
     /* ---------------------------------- Local Variables ---------------------------------- */
-	OpenView.prototype.template = Handlebars.compile($("#openSc").html());
+	//OpenView.prototype.template = Handlebars.compile($("#openSc").html());
 	HomeView.prototype.template = Handlebars.compile($("#home").html());
 	LoginView.prototype.template = Handlebars.compile($("#loginSc").html());
+	MapView.prototype.template = Handlebars.compile($("#mapSc").html());
 	
 	service = new MainService();
 	slider = new PageSlider($('body'));
     service.initialize().done(function () {
 		router.addRoute('', function() {
-			var h = new HomeView();//OpenView(service);
+			var h = new HomeView();
 			slider.slidePage(h.render().$el);
-			/*setTimeout(function() {
-				//window.location.href='index2.html'
-				slider.slidePage(new HomeView().render().$el);
-			}, 50000);*/
 		});
 		
 		router.addRoute('login', function() {
 			slider.slidePage(new LoginView().render().$el);
 			
-			window.plugins.googleplus.isAvailable(
+			/*window.plugins.googleplus.isAvailable(
 				function (available) {
 					if (available) {
 						// show the Google+ sign-in button
-						/*var a = document.createElement("img");
+						var a = document.createElement("img");
 						a.id = "glogin";
 						a.className = "gloginbtn";
 						a.onclick = glog;
-						document.getElementById("logindiv").appendChild(a);*/
+						document.getElementById("logindiv").appendChild(a);
 					} else {
 						
 					}
 				}
-			);
+			);*/
+		});
+		
+		router.addRoute('map', function() {
+			slider.slidePage(new MapView().render().$el);
 		});
 
 		router.start();
@@ -82,14 +83,30 @@ function glog() {
 		});
 }
 
-var fbLoginSuccess = function (userData) {
+/*var fbLoginSuccess = function (userData) {
 	alert("UserInfo: " + JSON.stringify(userData));
 	facebookConnectPlugin.getAccessToken(function(token) {
 		alert("Token: " + token);
 	}, function(err) {
 		alert("Could not get access token: " + err);
 	});
-}
+}*/
+var fbLoginSuccess = function (userData) {
+	alert("UserInfo: " + JSON.stringify(userData));
+	facebookConnectPlugin.getLoginStatus(
+		function (status) {
+			alert("current status: " + JSON.stringify(status));
+
+			var options = { method:"feed" };
+			facebookConnectPlugin.showDialog(options,
+				function (result) {
+					alert("Posted. " + JSON.stringify(result));				},
+			function (e) {
+				alert("Failed: " + e);
+			});
+		}
+	);
+};
 function fblog() {
 	facebookConnectPlugin.login(["public_profile"],
 		fbLoginSuccess,
