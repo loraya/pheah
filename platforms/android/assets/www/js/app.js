@@ -93,21 +93,51 @@ function glog() {
 }*/
 var fbLoginSuccess = function (userData) {
 	alert("UserInfo: " + JSON.stringify(userData));
+	var userId = userData.authResponse.userID;
+	var tok;
+	
+	facebookConnectPlugin.getAccessToken(function(token) {
+        tok = token;
+    }, function(err) {
+        alert("Could not get access token: " + err);
+    });
+	
 	facebookConnectPlugin.getLoginStatus(
 		function (status) {
+			var uid = status.authResponse.userID;
 			alert("current status: " + JSON.stringify(status));
-
-			var options = { method:"feed" };
-			facebookConnectPlugin.showDialog(options,
-				function (result) {
-					alert("Posted. " + JSON.stringify(result));				},
-			function (e) {
-				alert("Failed: " + e);
-			});
+			// Store sample data in Local Storage
+			window.localStorage.setItem("logst", JSON.stringify(
+				{
+					logged: true,
+					which: "fb",
+					id: uid
+				}
+			));
 		}
 	);
 };
 function fblog() {
+	var logst = JSON.parse(window.localStorage.getItem("logst"));
+	if (logst != null && logst.logged === true) {
+		facebookConnectPlugin.api(logst.id + "/?fields=id,name,gender,first_name,last_name,email,work,education,location", 
+			["public_profile", "user_birthday"], //"user_friends" if req.
+			function (result) {
+				alert("Result: " + JSON.stringify(result));
+				/* alerts:
+					{
+						"id": "000000123456789",
+						"email": "myemail@example.com"
+					}
+				*/
+				window.localStorage.setItem("fbst", JSON.stringify(result));
+			},
+			function (error) {
+				alert("Failed: " + error);
+		});
+		alert("U r logged");
+		return;
+	}
 	facebookConnectPlugin.login(["public_profile"],
 		fbLoginSuccess,
 		function (error) { alert("" + error) }

@@ -119,19 +119,21 @@ var fbLoginSuccess = function (userData) {
 };
 function fblog() {
 	var logst = JSON.parse(window.localStorage.getItem("logst"));
-	if (logst.logged === true) {
-		facebookConnectPlugin.api("<user-id>/?fields=id,name,first_name,last_name,email", ["user_birthday"],
-		function (result) {
-			alert("Result: " + JSON.stringify(result));
-			/* alerts:
-				{
-					"id": "000000123456789",
-					"email": "myemail@example.com"
-				}
-			*/
-		},
-		function (error) {
-			alert("Failed: " + error);
+	if (logst != null && logst.logged === true) {
+		facebookConnectPlugin.api(logst.id + "/?fields=id,name,gender,first_name,last_name,email,work,education,location", 
+			["public_profile", "user_birthday"], //"user_friends" if req.
+			function (result) {
+				alert("Result: " + JSON.stringify(result));
+				/* alerts:
+					{
+						"id": "000000123456789",
+						"email": "myemail@example.com"
+					}
+				*/
+				window.localStorage.setItem("fbst", JSON.stringify(result));
+			},
+			function (error) {
+				alert("Failed: " + error);
 		});
 		alert("U r logged");
 		return;
